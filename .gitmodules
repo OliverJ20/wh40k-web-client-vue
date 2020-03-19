@@ -1,0 +1,4 @@
+[submodule "Wh40k-List-Builder-Web"]
+	path = Wh40k-List-Builder-Web
+	url = git@github.com:OliverJ20/Wh40k-List-Builder-Web.git
+	branch = master
