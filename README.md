@@ -1,24 +1,24 @@
-# trivia-web-client-vue
+
+# Wh40k-web-client-vue
+# Prerequisites
+
+1. `node installed` - If node is not installed please download from here https://nodejs.org/en/download/
+
+This is the frontend component to a backend service which I have yet to seemlessly connect into one repo, please reference 
+```
+https://github.com/OliverJ20/Wh40k-List-Builder-Web
+```
+This is the repo for the backend component.
 
 ## Project setup
-```
-yarn install
-```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+1. Run `yarn install`
+2. Run `yarn serve`
 
-### Compiles and minifies for production
-```
-yarn build
-```
+This should spin up the node server and allow you to access the frontend application.
 
-### Lints and fixes files
-```
-yarn lint
-```
+# Notes 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+As Stated above this is meant to be joined with the backend web component and relies upon it for database interaction, 
+the frontend will not function as intend without it. 
+
