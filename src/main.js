@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import './scss/main.scss'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 
-import Dashboard from './components/Dashboard.vue'
+import Dashboard from './containers/layout/Dashboard.vue'
 import Auth from '@okta/okta-vue'
-import ArmyList from './components/ArmyList.vue'
-import Army from './components/Army'
+import ArmyList from './containers/pages/ArmyList.vue'
+import Army from './containers/pages/Army'
 
 Vue.use(Auth, {
     issuer: 'https://dev-333453.okta.com/oauth2/default',

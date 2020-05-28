@@ -1,0 +1,8 @@
+// Import Bulma first
+@import '~bulma';
+// Import Component main Sass File
+@import '~@creativebulma/bulma-collapsible';
+@import 'variables';
+@import 'layout';
+@import 'pages/ArmyFactions';
+@import 'pages/Army';

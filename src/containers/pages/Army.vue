@@ -1,8 +1,8 @@
 <template>
     <div>
-    <div class="columns">
-        <div class="column">
-            <table class="table">
+    <div>
+        <div>
+            <table class="table is-fullwidth">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -10,21 +10,20 @@
                 </tr>
                 </thead>
                 <tbody>
-                <template v-for="unit in hqUnits[0]">
-                    <tr v-bind:key="unit.name">
+                    <tr v-bind:key="unit.name" v-for="unit in hqUnits[0]">
                         <td>{{ unit.name }}</td>
                         <td>{{ unit.points }}</td>
                     </tr>
-                </template>
                 </tbody>
             </table>
         </div>
     </div>
-        <div>
+        <div class="add-unit-button-margin">
             <button
                 type="button"
-                class="btn"
+                class="button"
                 @click="showModal"
+
             >
                 Add Hq Units
             </button>
@@ -42,8 +41,8 @@
 
 <script>
     import axios from "axios";
-    import { API_BASE_URL } from "../config";
-    import UnitSelector from "./UnitSelector";
+    import { API_BASE_URL } from "../../config";
+    import UnitSelector from "../../components/army-components/UnitSelector";
 
     export default {
         name: 'army',
