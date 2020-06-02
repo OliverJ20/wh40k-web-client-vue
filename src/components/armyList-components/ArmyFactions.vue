@@ -4,7 +4,7 @@
       <p class="card-header-title primary-header-colour">
         {{armyFaction}} Armies
       </p>
-      <a href="#collapsible-card" data-action="collapse" class="card-header-icon is-hidden-fullscreen primary-header-colour" aria-label="more options">
+      <a href="#collapsible-card"  :data-cy="'to-collapse-id-' + armyFaction" data-action="collapse" class="card-header-icon is-hidden-fullscreen primary-header-colour" aria-label="more options">
 			<span class="icon">
         <span v-if="collapse">
         <span><i class="fas fa-angle-down" ></i></span>
@@ -18,23 +18,22 @@
     <div :id="'to-collapse-' + armyFaction" class="is-collapsible primary-background-colour">
       <div class="card-content">
         <div class="columns is-multiline">
-          <div
+          <router-link :to="{ name: 'detachments', params: { id: 1}}"
               v-for="selectedArmy in armySingle"
-              @click="goToBlabla(1)"
               v-bind:key="selectedArmy.id"
               class="column is-one-third"
           >
-            <div class="img-wrapper">
+            <div    :data-cy="'img-id-' + selectedArmy.shorthand" class="img-wrapper">
               <img
                   class="img-size"
                   :src='getImgUrl(selectedArmy.shorthand)'
                   :alt='selectedArmy.name'
               />
               <div class="img-overlay">
-                <div class="img-overlay-text"> {{selectedArmy.name}} </div>
+                <div :data-cy="'img-text-id-' + selectedArmy.shorthand" class="img-overlay-text"> {{selectedArmy.name}} </div>
               </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -76,7 +75,7 @@
       },
       goToBlabla(id) {
         console.log('triggered')
-        this.$router.push({ name: 'army', params: { id: id } });
+        this.$router.push({ name: 'detachments', params: { id: id } });
       },
     },
     mounted() {

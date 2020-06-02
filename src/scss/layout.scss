@@ -10,10 +10,23 @@ html {
   background-color: $primary-header-colour;
 }
 
+.secondary-header-colour {
+  background-color: $secondary-header-colour;
+}
+
+.primary-button-colour {
+  background-color: $primary-button-colour;
+  border: none;
+}
+
 .primary-background-colour {
   background-color: $primary-background-colour;
 }
 
 .secondary-background-colour {
   background-color: $secondary-background-colour;
+}
+
+.white-background-colour {
+  background-color: $primary-white-colour;
 }

@@ -15,21 +15,24 @@
     import axios from 'axios'
     import { API_BASE_URL } from '../../config'
     import ArmyFactions from '../../components/armyList-components/ArmyFactions';
-
+    import Vuex from 'vuex'
+    import Vue from 'vue'
+    Vue.use(Vuex)
     export default {
+      name: 'ArmyList',
       components: {
         ArmyFactions,
       },
-        data() {
-            return {
-              isLoading: true,
-              armys: {},
-              imperium: [],
-              chaos: [],
-              xenos: [],
-            }
-        },
-        async created () {
+      data() {
+        return {
+          isLoading: false,
+          armys: {},
+          imperium: [],
+          chaos: [],
+          xenos: [],
+        }
+      },
+      async created () {
         axios.defaults.headers.common['Authorization'] = `Bearer ${await this.$auth.getAccessToken()}`
           try {
           const response = await axios.get(API_BASE_URL + '/armyList')
