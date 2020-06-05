@@ -3,8 +3,10 @@ import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import './scss/main.scss'
 
-Vue.config.productionTip = false
-Vue.use(VueRouter)
+import * as state from './Store/state'
+import * as mutations from './Store/mutations'
+import * as actions from './Store/actions'
+import * as plugins from './Store/plugins'
 
 import Dashboard from './containers/layout/Dashboard.vue'
 import Auth from '@okta/okta-vue'
@@ -12,6 +14,9 @@ import ArmyList from './containers/pages/ArmyList.vue'
 import ArmyBuilder from './containers/pages/ArmyBuilder'
 import DetachmentList from "./containers/pages/DetachmentList";
 import ArmyFactions from "./components/armyList-components/ArmyFactions";
+
+Vue.config.productionTip = false
+Vue.use(VueRouter)
 
 Vue.use( Auth, {
     issuer: 'https://dev-333453.okta.com/oauth2/default',
@@ -23,26 +28,10 @@ Vue.use( Auth, {
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    state: {
-        detachmentArrayState: [],
-    },
-    mutations: {
-        setDetachmentArrayValue(state, { newValue }) {
-            state.detachmentArrayState = [ ...state.detachmentArrayState, newValue];
-        },
-        removeValue(state, { removedValue }) {
-            const removedIndex = state.detachmentArrayState.findIndex((v) => v.name === removedValue.name)
-            state.detachmentArrayState.splice(removedIndex, 1)
-        },
-        clearDetachmentArray(state) {
-            state.detachmentArrayState = []
-        }
-    },
-    actions: {
-        clearDetachmentArray({commit}) {
-            commit('clearDetachmentArray')
-        },
-    }
+    state,
+    mutations,
+    actions,
+    plugins,
 });
 
 const routes = [

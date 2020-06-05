@@ -15,9 +15,6 @@
     import axios from 'axios'
     import { API_BASE_URL } from '../../config'
     import ArmyFactions from '../../components/armyList-components/ArmyFactions';
-    import Vuex from 'vuex'
-    import Vue from 'vue'
-    Vue.use(Vuex)
     export default {
       name: 'ArmyList',
       components: {

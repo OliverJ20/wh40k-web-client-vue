@@ -12,7 +12,7 @@ This is the repo for the backend component.
 
 ## Project setup
 
-1. Run `yarn install`
+1. Run `yarn install` / `npm install`
 2. Run `yarn serve`
 
 This should spin up the node server and allow you to access the frontend application.

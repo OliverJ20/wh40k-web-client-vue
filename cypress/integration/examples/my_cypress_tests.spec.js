@@ -25,12 +25,5 @@ context('Testing', () => {
 
    cy.get('[data-cy=img-id-BloodAngels]').trigger('mouseover')
 
-    //cy.get('[data-cy=img-text-id-BloodAngels]').should('be.visible')
-
-    // img-id-BloodAngels
-
-
   })
-
- // login-button
 })

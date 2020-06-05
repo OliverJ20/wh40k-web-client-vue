@@ -32,7 +32,6 @@
         },
 
         watch: {
-            // Everytime the route changes, check for auth status
             '$route': 'isAuthenticated'
         },
 
@@ -48,8 +47,6 @@
             async logout () {
                 await this.$auth.logout()
                 await this.isAuthenticated()
-
-                // Navigate back to home
                 this.$router.push({ path: '/' })
             }
         }

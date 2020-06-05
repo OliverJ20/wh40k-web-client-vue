@@ -4,7 +4,7 @@
       <p class="card-header-title primary-header-colour">
         {{detachments.name}}
       </p>
-      <span v-if="counter > 0" class="card-header-icon is-hidden-fullscreen primary-header-colour user-select-none">
+      <span v-if="selectedAmount > 0" class="card-header-icon is-hidden-fullscreen primary-header-colour user-select-none">
         <router-link
                 class="button primary-button-colour"
                 :to="{ name: 'armyBuilder',
@@ -12,7 +12,7 @@
           Continue
         </router-link>
       </span>
-      <span v-if="counter > 0" @click="theReverseCount(detachments)" class="card-header-icon is-hidden-fullscreen primary-header-colour user-select-none">
+      <span v-if="selectedAmount > 0" @click="theReverseCount(detachments)" class="card-header-icon is-hidden-fullscreen primary-header-colour user-select-none">
         <span class="icon">
           <i class="fas fa-minus" ></i>
         </span>
@@ -29,7 +29,7 @@
                       :alt='detachments.name'
               />
               <div :id="'overlay-id-' + detachments.shorthand" @click="theCount(detachments)" class="img-detachment-overlay user-select-none">
-                <p class="img-overlay-text"> {{counter}} </p>
+                <p class="img-overlay-text"> {{selectedAmount}} </p>
               </div>
             </div>
 
@@ -47,7 +47,7 @@
       return {
         isLoading: true,
         collapse: true,
-        counter: 0,
+        selectedAmount: 0,
         el: '',
         selectedDetachment: [],
       }
@@ -57,9 +57,7 @@
       id: Number,
     },
     mounted () {
-      const help = 'overlay-id-' + this.detachments.shorthand
-      this.el = document.getElementById(help)
-      console.log(this.el)
+      this.el = document.getElementById('overlay-id-' + this.detachments.shorthand)
     },
     methods: {
       ...mapActions([
@@ -71,20 +69,20 @@
       },
       theCount (addDetachment) {
         this.selectedDetachment.push(addDetachment)
-        this.counter += 1
+        this.selectedAmount += 1
         this.$store.commit('setDetachmentArrayValue', { newValue: addDetachment })
       },
       theReverseCount (removeDetachment) {
-        if (this.counter > 0)
-        this.counter -= 1
+        if (this.selectedAmount > 0)
+        this.selectedAmount -= 1
         this.$store.commit('removeValue', { removedValue: removeDetachment })
       }
   },
     updated () {
-      if (this.counter > 0) {
+      if (this.selectedAmount > 0) {
         this.el.classList.add('overlay-stay')
       }
-      if (this.counter === 0) {
+      if (this.selectedAmount === 0) {
         this.el.classList.remove('overlay-stay')
       }
     },

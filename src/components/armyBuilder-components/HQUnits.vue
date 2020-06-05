@@ -18,6 +18,16 @@
 
 <script>
   export default {
-    name: 'HQUnits'
+    name: 'HQUnits',
+    props: {
+      id: Number,
+      detachmentIndex: Number,
+    },
+    data() {
+      return {
+        hqUnits: this.$store.state.hqUnits,
+        selectedUnits: [],
+      }
+    }
   }
 </script>

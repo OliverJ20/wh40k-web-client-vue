@@ -73,10 +73,6 @@
           bulmaCollapsibleElement.bulmaCollapsible('open');
         }
       },
-      goToBlabla(id) {
-        console.log('triggered')
-        this.$router.push({ name: 'detachments', params: { id: id } });
-      },
     },
     mounted() {
       const bulmaCollapsibleElement = document.getElementById('to-collapse-' + this.armyFaction);

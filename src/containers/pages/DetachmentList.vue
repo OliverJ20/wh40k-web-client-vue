@@ -29,8 +29,7 @@
       }
     },
     async created () {
-    await this.$store.dispatch('clearDetachmentArray')
-      console.log('helpp')
+      await this.$store.dispatch('clearDetachmentArray')
       this.ArmyDetachments = [
         {
           id: 1,
@@ -92,11 +91,7 @@
           name: 'Auxiliary Support Detachment',
           shorthand: 'auxiliary-support'
         },
-
       ]
-
-      console.log(this.ArmyDetachments)
-
     },
   }
 </script>
